@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <main class="app">
+      <header class="header">
+        <h1>TODO LIST</h1>
+      </header>
+
+      <section class="task-form">
+        <input
+          type="text"
+          class="task-input"
+          id="task-input"
+          placeholder="What needs to be done?"
+        />
+
+        <div class="color-picker">
+          <span class="dot c1" style="background-color: #ffadad"></span>
+          <span class="dot c2" style="background-color: #ffd6a5"></span>
+          <span class="dot c3" style="background-color: #fdffb6"></span>
+          <span class="dot c4" style="background-color: #caffbf"></span>
+          <span class="dot c5" style="background-color: #9bf6ff"></span>
+          <span class="dot c6" style="background-color: #a0c4ff"></span>
+        </div>
+
+        <div class="controls">
+          <div class="field">
+            <label>Date</label>
+            <input type="text" id="dateInput" placeholder="Select Date" />
+          </div>
+          <div class="field">
+            <label>Time</label>
+            <input type="text" id="timeInput" placeholder="Select Time" />
+          </div>
+          <div class="field">
+            <label>Tag</label>
+            <input type="text" id="taskTagInput" placeholder="e.g. Work" />
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn add-btn" id="addTask">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <button class="btn reset-btn" id="clearBtn">
+            <i class="fa-solid fa-eraser"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="table-wrap">
+        <table class="todo-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Task</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Tag</th>
+              <th>Status</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyTable"></tbody>
+        </table>
+        <p class="count">Total Tasks: 0</p>
+      </section>
+    </main>
+
+    <div class="custom-modal" id="errorModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>
+            <i class="fa-solid fa-triangle-exclamation"></i> Action Required
+          </h3>
+        </div>
+        <div class="modal-body">
+          <p id="modalErrorMessage">Please fill in the required fields.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-close-btn" id="closeModal">Got it!</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="todoList.js"></script>
+  </body>
+</html>
